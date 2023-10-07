@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # Internal Apps
-
+    'core',
+    'product.apps.ProductConfig',
 ]
 
 MIDDLEWARE = [
