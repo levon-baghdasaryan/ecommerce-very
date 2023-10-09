@@ -1,0 +1,66 @@
+openapi: 3.0.3
+info:
+  title: DRF Ecommerce
+  version: 1.0.0
+  description: Ecommerce website with Django Rest Framework
+paths:
+  /api/category/:
+    get:
+      operationId: api_category_list
+      description: A simple Viewset for viewing all categories
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+          description: ''
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        lft:
+          type: integer
+          readOnly: true
+        rght:
+          type: integer
+          readOnly: true
+        tree_id:
+          type: integer
+          readOnly: true
+        level:
+          type: integer
+          readOnly: true
+        parent:
+          type: integer
+          nullable: true
+      required:
+      - id
+      - level
+      - lft
+      - name
+      - rght
+      - tree_id
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
