@@ -20,7 +20,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
-from product.views import category_view, brand_view
+from product.views import category_view, brand_view, product_view
 
 
 router = DefaultRouter()
@@ -28,6 +28,7 @@ router.register(
     r"category", category_view.CategoryViewSet, basename="category"
 )
 router.register(r"brand", brand_view.BrandViewSet, basename="brand")
+router.register(r"product", product_view.ProductViewSet, basename="product")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
