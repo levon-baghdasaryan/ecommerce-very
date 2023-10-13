@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'drf_spectacular',
 
     # Internal Apps
-    'core',
     'product.apps.ProductConfig',
 ]
 
