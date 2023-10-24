@@ -1,0 +1,158 @@
+[
+    {
+        "model": "product.category",
+        "pk": 1,
+        "fields": {
+            "name": "Phones and Communication",
+            "parent": null,
+            "lft": 1,
+            "rght": 10,
+            "tree_id": 2,
+            "level": 0
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 2,
+        "fields": {
+            "name": "Computers, Notebooks, Tablets",
+            "parent": null,
+            "lft": 1,
+            "rght": 6,
+            "tree_id": 1,
+            "level": 0
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 3,
+        "fields": {
+            "name": "Phones",
+            "parent": 1,
+            "lft": 4,
+            "rght": 9,
+            "tree_id": 2,
+            "level": 1
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 4,
+        "fields": {
+            "name": "Accessories",
+            "parent": 1,
+            "lft": 2,
+            "rght": 3,
+            "tree_id": 2,
+            "level": 1
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 5,
+        "fields": {
+            "name": "Notebooks",
+            "parent": 2,
+            "lft": 4,
+            "rght": 5,
+            "tree_id": 1,
+            "level": 1
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 6,
+        "fields": {
+            "name": "Monitors",
+            "parent": 2,
+            "lft": 2,
+            "rght": 3,
+            "tree_id": 1,
+            "level": 1
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 7,
+        "fields": {
+            "name": "SmartPhones",
+            "parent": 3,
+            "lft": 7,
+            "rght": 8,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 8,
+        "fields": {
+            "name": "Mobile Phones",
+            "parent": 3,
+            "lft": 5,
+            "rght": 6,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 1,
+        "fields": {
+            "name": "Apple"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 2,
+        "fields": {
+            "name": "Xiaomi"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 3,
+        "fields": {
+            "name": "Nokia"
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 1,
+        "fields": {
+            "name": "Redmi Note",
+            "slug": "redmi-note",
+            "description": "",
+            "is_digital": false,
+            "brand": 2,
+            "category": 7,
+            "is_active": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 2,
+        "fields": {
+            "name": "iPhone 15",
+            "slug": "iphone-15",
+            "description": "",
+            "is_digital": false,
+            "brand": 1,
+            "category": 7,
+            "is_active": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 3,
+        "fields": {
+            "name": "230",
+            "slug": "230",
+            "description": "",
+            "is_digital": false,
+            "brand": 3,
+            "category": 8,
+            "is_active": true
+        }
+    }
+]
