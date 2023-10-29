@@ -18,7 +18,7 @@ class ProductViewSet(viewsets.ViewSet):
         queryset = Product.objects.all()
         serializer = ProductSerializer(queryset, many=True)
         return Response(serializer.data)
-    
+
     def retrieve(self, request, slug=None):
         serializer = ProductSerializer(Product.objects.get(slug=slug), many=False)
         return Response(serializer.data)
