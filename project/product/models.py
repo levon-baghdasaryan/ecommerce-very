@@ -2,11 +2,26 @@ from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
 
+# class ActiveManager(models.Manager):
+#     # def get_queryset(self):
+#     # return super().get_queryset().filter(is_active=True)
+
+#     def isactive(self):
+#         return self.get_queryset().filter(is_active=True)
+
+
+class ActiveQueryset(models.QuerySet):
+    def isactive(self):
+        return self.filter(is_active=True)
+
+
 class Category(MPTTModel):
     name = models.CharField(max_length=100)
     parent = TreeForeignKey(
         "self", on_delete=models.PROTECT, null=True, blank=True
     )
+    is_active = models.BooleanField(default=False)
+    objects = ActiveQueryset.as_manager()
 
     class MPTTMeta:
         order_insertion_by = ["name"]
@@ -20,6 +35,8 @@ class Category(MPTTModel):
 
 class Brand(models.Model):
     name = models.CharField(max_length=100)
+    is_active = models.BooleanField(default=False)
+    objects = ActiveQueryset.as_manager()
 
     def __str__(self):
         return self.name
@@ -35,6 +52,8 @@ class Product(models.Model):
         "Category", on_delete=models.SET_NULL, null=True, blank=True
     )
     is_active = models.BooleanField(default=False)
+    # objects = ActiveManager()
+    objects = ActiveQueryset.as_manager()
 
     def __str__(self):
         return self.name
@@ -48,3 +67,4 @@ class ProductLine(models.Model):
         Product, on_delete=models.CASCADE, related_name="product_line"
     )
     is_active = models.BooleanField(default=False)
+    objects = ActiveQueryset.as_manager()
